@@ -6,5 +6,7 @@ jobs:
   docker:
     runs-on: ubuntu-18.04
     steps:
-    - name: ECHO
-      run: echo 'hello world'
+      - name: Checkout
+        uses: action/checkout@v2
+      - name: Print Test
+        run: echo pwd
