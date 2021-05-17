@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM jelastic/nodejs
 WORKDIR /home
 ADD . .
-RUN mkdir Thu-muc-test
+RUN npm install
