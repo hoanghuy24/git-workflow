@@ -15,7 +15,7 @@ jobs:
           username: huyth2403
           password: 051c9bc6-4493-4a1d-b3e6-588fff623096
       - name: Build And Push Docker Hub
-        uses: docker/build-push-action
+        uses: docker/build-push-action@v2
         with: 
           context: ./
           file: ./Dockerfile
