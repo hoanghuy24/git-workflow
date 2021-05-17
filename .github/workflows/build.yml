@@ -1,12 +1,13 @@
-name: build-test
+name: CI FE
 on: 
   push:
-    branches: [ master ]
+    branches: 
+      - master
 jobs:
   docker:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Print Test
+      - name: Print Pwd
         run: pwd
