@@ -1,5 +1,3 @@
-FROM ubuntu:lastest
+FROM ubuntu
 WORKDIR /home
 ADD . .
-
-
