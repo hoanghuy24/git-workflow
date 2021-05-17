@@ -13,13 +13,13 @@ jobs:
       - name: Login to docker
         uses: docker/login-action@v1
         with:
-          username: huyth2403
-          password: 051c9bc6-4493-4a1d-b3e6-588fff623096
-          
+          username: #???
+          password: #???
+
       - name: Build And Push Docker Hub
         uses: docker/build-push-action@v2
         with: 
-          context: ./
+          context: ./ # path đến folder chạy Docker Build, >> docker build -t ???
           file: ./Dockerfile
-          push: true
-          tags: huyth2403/testttttt
+          push: true  #(sau khi build sẽ push Image)
+          tags: huyth2403/hello-world
