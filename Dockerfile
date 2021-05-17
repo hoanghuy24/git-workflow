@@ -1,4 +1,5 @@
 FROM jelastic/nodejs
 WORKDIR /home
 ADD . .
-RUN npm install && npm start
+RUN npm install
+CMD npm start
