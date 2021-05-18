@@ -4,9 +4,23 @@ on:
     branches:
       - master
 jobs:
-  connectSsh:
+  docker:
     runs-on: ubuntu-18.04
     steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Login to docker
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hello-world
       - name: connect to ssh
         uses: appleboy/ssh-action@master
         with:
@@ -14,4 +28,4 @@ jobs:
           username: chicken
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
-          script: sudo docker images
+          script: sudo docker pull huyth2403/hello-world && sudo docker run -it -dp 3333:3000 ${{ secrets.DOCKERHUB_USERNAME }}/hello-world
