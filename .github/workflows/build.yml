@@ -33,6 +33,6 @@ jobs:
         with:
           host: '35.185.180.244'
           username: chicken
-          key: ${{ secrets.PRIVATE_KEY }}
+          key: ${{ secrets.PRIVATE_KEY_1 }}
           port: 22
           script: sudo docker pull huyth2403/hello-world && sudo docker run -it -dp 3333:3000 ${{ secrets.DOCKERHUB_USERNAME }}/hello-world
