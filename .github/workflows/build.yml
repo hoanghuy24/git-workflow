@@ -14,3 +14,7 @@ jobs:
           username: chicken
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
+          script: |
+            pwd
+            ls -l
+            whoami
