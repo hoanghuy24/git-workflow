@@ -12,5 +12,5 @@ jobs:
         with:
           host: '35.185.180.244'
           username: chicken
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.PRIVATE_KEY }}
           port: 22
