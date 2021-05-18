@@ -1,5 +1,3 @@
-FROM jelastic/nodejs
-WORKDIR /home
+FROM tomcat:9.0
+WORKDIR /usr/local/tomcat/webapps
 ADD . .
-RUN npm install
-CMD npm start
