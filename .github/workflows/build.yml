@@ -34,4 +34,4 @@ jobs:
           username: chicken
           key: ${{ secrets.PRIVATE_KEY_1 }}
           port: 22
-          script: sudo docker pull huyth2403/hello-world && sudo docker rm -f $(sudo docker ps -aq)  && sudo docker run --name frontend -it -dp 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/hello-world
+          script: sudo docker pull huyth2403/hello-world &&  sudo docker ps -q --filter "name=frontend" | grep -q . && sudo docker rm -f frontend  && sudo docker run --name frontend -it -dp 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/hello-world
