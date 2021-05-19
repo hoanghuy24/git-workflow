@@ -20,29 +20,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
-
-      # - name: Cache Docker Image Layers
-      #   uses: actions/cache@v2
-      #   with: 
-      #     path: /tmp/.buildx-cache
-      #     key: $ {{ runner.os }}-buildx-${{ github.sh }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-buildx-
-
-      # - name: Set up Docker Buildx
-      #   id: buildx
-      #   uses: docker/setup-buildx-action@v1
-
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: ./
-          # builder: buildx
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/hello-world
-          # cache-from: type=local,src=/tmp/.buildx-cache
-          # cache-to: type=local,dest=/tmp/.buildx-cache
       - name: connect to ssh
         uses: appleboy/ssh-action@master
         with:
